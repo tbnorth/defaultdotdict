@@ -6,6 +6,9 @@ adding more DefaultDotDicts when non-existent items are requested.
 
 See main() for a demo.
 
+Master copy lives here:
+https://gist.github.com/tbnorth/61d3b75f26637d9f26c1678c5d94cb8e
+
 Terry N. Brown, terrynbrown@gmail.com, Wed Mar 01 09:44:29 2017
 """
 
