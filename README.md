@@ -13,7 +13,7 @@ car.coord.x = 45.1235
 car.coord.y = 92.5432
 ```
 
-without having to define `drive.coord`.
+without having to define `car.coord`.
 
 Other features:
 
