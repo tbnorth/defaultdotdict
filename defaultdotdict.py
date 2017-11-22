@@ -41,7 +41,6 @@ class DefaultDotDict(dict):
         """used like json.load, but uses DefaultDotDict.json_object_hook"""
         return json.load(fileobj, object_hook=DefaultDotDict.json_object_hook)
 
-
     def key_tree(self, aDict=None, level=0):
         """key_tree - return tree of keys, a content map
         """
@@ -62,6 +61,8 @@ class DefaultDotDict(dict):
             return '\n'.join(aList)
         else:
             return aList
+
+
 def main():
     """simple test / demo of DefaultDotDict"""
     import os, pprint, tempfile
@@ -89,5 +90,7 @@ def main():
     print('test' in new_a)  # now it's True
 
     print(new_a.key_tree())
+
 if __name__ == '__main__':
     main()
+
