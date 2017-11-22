@@ -42,6 +42,26 @@ class DefaultDotDict(dict):
         return json.load(fileobj, object_hook=DefaultDotDict.json_object_hook)
 
 
+    def key_tree(self, aDict=None, level=0):
+        """key_tree - return tree of keys, a content map
+        """
+        if aDict is None:
+            aDict = self
+        aList = []
+        for key in sorted(aDict):
+            aList.append('  '*level + key + ':')   # this key
+            is_dict = isinstance(aDict[key], dict) # is a dict of some sort
+            # keys in child dict, if it is a dict
+            extra = self.key_tree(aDict[key], level+1) if is_dict else []
+            aList.extend(extra)
+            if not extra:  # otherwise show type
+                aList[-1] += ' %s' % type(aDict[key]).__name__
+                if is_dict:
+                    aList[-1] += " (empty)"
+        if level == 0:
+            return '\n'.join(aList)
+        else:
+            return aList
 def main():
     """simple test / demo of DefaultDotDict"""
     import os, pprint, tempfile
@@ -68,5 +88,6 @@ def main():
     print(hasattr(new_a, 'test'))  # True
     print('test' in new_a)  # now it's True
 
+    print(new_a.key_tree())
 if __name__ == '__main__':
     main()
