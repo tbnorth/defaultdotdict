@@ -1,5 +1,7 @@
 # DefaultDotDict
 
+**Better choice:** https://github.com/mewwts/addict is tested, supported, etc.
+
 Yet another Python `dict` subclass that allows `my_dict.x` as
 well as my_dict['x'].  The former is much more usable in equations
 etc.
